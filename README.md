@@ -13,7 +13,7 @@ Juego de preguntas y respuestas tipo Preguntados / Trivial Pursuit, para jugar *
 
 ## Cómo está construido
 
-React + TypeScript + Vite, Tailwind CSS para estilos, y `vite-plugin-pwa` para poder instalarla como app. El tablero se dibuja en SVG y el banco de 180 preguntas (30 por categoría) vive en `src/data/questions.ts`.
+React + TypeScript + Vite, Tailwind CSS para estilos, y `vite-plugin-pwa` para poder instalarla como app. El tablero se dibuja en SVG y el banco de 500 preguntas (repartidas entre las seis categorías) vive en `src/data/questions.ts`.
 
 ## Desarrollo
 
