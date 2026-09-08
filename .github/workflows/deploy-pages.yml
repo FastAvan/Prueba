@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - claude/app-residencias-madrid-l7iwow
+      - claude/local-trivia-game-srdi2o
   workflow_dispatch:
 
 permissions:
