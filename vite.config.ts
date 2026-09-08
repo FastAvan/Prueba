@@ -13,9 +13,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'ResiMadrid',
-        short_name: 'ResiMadrid',
-        description: 'App para estudiantes de residencias universitarias en Madrid',
+        name: 'Preguntados local',
+        short_name: 'Preguntados',
+        description: 'Juego de preguntas y respuestas tipo Preguntados, para jugar en modo local por turnos',
         theme_color: '#0f172a',
         background_color: '#0f172a',
         display: 'standalone',

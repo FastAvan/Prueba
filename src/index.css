@@ -15,9 +15,3 @@ body {
   color: #e2e8f0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
-
-.leaflet-container {
-  height: 100%;
-  width: 100%;
-  background-color: #0b1120;
-}

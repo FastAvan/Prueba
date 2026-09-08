@@ -1,70 +1,42 @@
-export type POICategory =
-  | 'residencia'
-  | 'metro'
-  | 'super'
-  | 'lavanderia'
-  | 'ocio'
-  | 'salud'
-  | 'otro'
+export type CategoryId =
+  | 'geografia'
+  | 'entretenimiento'
+  | 'historia'
+  | 'arte'
+  | 'ciencia'
+  | 'deportes'
 
-export interface POI {
+export interface Category {
+  id: CategoryId
+  label: string
+  color: string
+  colorDark: string
+}
+
+export interface Question {
+  category: CategoryId
+  question: string
+  options: [string, string, string, string]
+  correctIndex: 0 | 1 | 2 | 3
+}
+
+export interface Player {
   id: string
   name: string
-  category: POICategory
-  lat: number
-  lng: number
-  note?: string
+  color: string
+  position: number
+  wedges: Set<CategoryId>
 }
 
-export type MachineType = 'lavadora' | 'secadora' | 'cocina'
+export type Phase = 'setup' | 'rolling' | 'moving' | 'question' | 'result' | 'finished'
 
-export interface Machine {
-  id: string
-  name: string
-  type: MachineType
-  defaultMinutes: number
-  /** epoch ms cuando termina el temporizador activo, o null si está libre */
-  endTime: number | null
-}
-
-export type RoomType = 'sala' | 'cine'
-
-export interface Room {
-  id: string
-  name: string
-  type: RoomType
-  description?: string
-}
-
-export interface Booking {
-  id: string
-  roomId: string
-  /** fecha en formato YYYY-MM-DD */
-  date: string
-  /** hora de inicio, 0-23 */
-  startHour: number
-  durationHours: number
-  personName: string
-  note?: string
-}
-
-export type MealSlot = 'comida' | 'cena'
-
-export interface MenuEntry {
-  /** 0 = lunes ... 6 = domingo */
-  day: number
-  meal: MealSlot
-  dish: string
-}
-
-export interface PersonalMenuChoice {
-  /** clave `${day}-${meal}` */
-  key: string
-  chosen: boolean
-}
-
-export interface ResidenciaConfig {
-  name: string
-  lat: number
-  lng: number
+export interface GameState {
+  players: Player[]
+  currentPlayerIndex: number
+  phase: Phase
+  lastRoll: number | null
+  activeQuestion: Question | null
+  lastAnswerCorrect: boolean | null
+  wonWedgeThisTurn: CategoryId | null
+  winnerId: string | null
 }

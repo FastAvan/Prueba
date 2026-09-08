@@ -1,24 +1,19 @@
-# ResiMadrid
+# Preguntados local
 
-App web (PWA) para estudiantes de residencias universitarias en Madrid.
+Juego de preguntas y respuestas tipo Preguntados / Trivial Pursuit, para jugar **en modo local** (varios jugadores por turnos, en el mismo dispositivo y navegador). Sin cuentas, sin internet y sin backend: todo corre en el cliente.
 
-## Funciones
+## Cómo se juega
 
-- **Mapa**: puntos de interés (residencia, metro, supermercados, ocio...) sobre un mapa de Madrid, con posibilidad de añadir marcadores propios tocando el mapa.
-- **Lavandería / cocina**: temporizadores por máquina (lavadoras, secadoras, horno) con aviso por notificación del navegador al terminar.
-- **Menú semanal**: editor del menú de la residencia por día/comida, con selección personal de "voy a comer esto" y un botón para compartir/pegar el menú entre dispositivos.
-- **Reservas**: calendario por franjas horarias para salas comunes y sala de cine.
-- **Ajustes**: configuración de la residencia, gestión de máquinas/salas, y exportación/importación de todos los datos.
+- Entre 2 y 6 jugadores, cada uno con su nombre y color.
+- El tablero es un circuito circular de casillas de seis categorías: Geografía, Entretenimiento, Historia, Arte y Literatura, Ciencia y Naturaleza, y Deportes y Ocio.
+- En tu turno tirás el dado, avanzás y respondés una pregunta de la categoría de la casilla donde caíste.
+- Si acertás, volvés a tirar; si fallás, pasa el turno al siguiente jugador.
+- Las casillas marcadas con 🧀 son "quesito": si acertás la pregunta ahí, ganás el quesito de esa categoría.
+- Gana quien consiga los 6 quesitos primero.
 
 ## Cómo está construido
 
-React + TypeScript + Vite, Tailwind CSS para estilos, `react-leaflet`/OpenStreetMap para el mapa, y `vite-plugin-pwa` para que la app sea instalable en el móvil.
-
-## Importante: no hay backend
-
-Todos los datos (reservas, menú, lavadoras en marcha, puntos del mapa) se guardan solo en `localStorage`, en el navegador de cada persona. Esto significa que **las reservas y el menú no se sincronizan automáticamente entre estudiantes**: si dos personas reservan la misma sala desde dos móviles distintos, la app no lo detecta.
-
-Para mitigarlo hay una función de exportar/importar datos en JSON (pantalla Ajustes) y un "compartir menú" por copiar/pegar (pantalla Menú), pero son soluciones manuales. Si más adelante se quiere que las reservas sean realmente compartidas en tiempo real entre todos los residentes, hace falta añadir un backend (por ejemplo Supabase: Postgres + tiempo real + autenticación).
+React + TypeScript + Vite, Tailwind CSS para estilos, y `vite-plugin-pwa` para poder instalarla como app. El tablero se dibuja en SVG y el banco de preguntas vive en `src/data/questions.ts`.
 
 ## Desarrollo
 
@@ -27,4 +22,5 @@ npm install
 npm run dev      # servidor de desarrollo
 npm run build    # build de producción
 npm run preview  # previsualizar el build
+npm run lint      # oxlint
 ```
