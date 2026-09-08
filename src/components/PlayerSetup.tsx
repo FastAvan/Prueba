@@ -43,7 +43,7 @@ export default function PlayerSetup({ onStart }: PlayerSetupProps) {
           Preguntados local
         </h1>
         <p className="text-slate-300 mt-2">
-          Sumá entre {MIN_PLAYERS} y {MAX_PLAYERS} jugadores para jugar por turnos en este mismo dispositivo.
+          Añade entre {MIN_PLAYERS} y {MAX_PLAYERS} jugadores para jugar por turnos en este mismo dispositivo.
         </p>
       </div>
 
