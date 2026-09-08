@@ -23,6 +23,7 @@ export interface Question {
 export interface Player {
   id: string
   name: string
+  avatar: string
   color: string
   position: number
   wedges: Set<CategoryId>

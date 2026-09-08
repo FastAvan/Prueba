@@ -15,10 +15,10 @@ interface DiceProps {
 export default function Dice({ value, rolling }: DiceProps) {
   const shown = value ?? 1
   return (
-    <svg viewBox="0 0 100 100" className={`w-16 h-16 ${rolling ? 'animate-spin' : ''}`}>
-      <rect x={5} y={5} width={90} height={90} rx={16} fill="#f8fafc" stroke="#0f172a" strokeWidth={4} />
+    <svg viewBox="0 0 100 100" className={`w-16 h-16 drop-shadow-lg ${rolling ? 'animate-spin' : ''}`}>
+      <rect x={5} y={5} width={90} height={90} rx={18} fill="#fefce8" stroke="#7c3aed" strokeWidth={4} />
       {PIPS[shown].map(([cx, cy], i) => (
-        <circle key={i} cx={cx} cy={cy} r={8} fill="#0f172a" />
+        <circle key={i} cx={cx} cy={cy} r={8} fill="#7c3aed" />
       ))}
     </svg>
   )

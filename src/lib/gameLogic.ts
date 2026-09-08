@@ -10,19 +10,27 @@ export const PLAYER_COLORS = [
   '#f97316', // naranja
 ]
 
-export function createPlayers(names: string[]): Player[] {
-  return names.map((name, i) => ({
-    id: `p${i}-${name}`,
-    name,
+export const PLAYER_AVATARS = ['😀', '😎', '🤓', '🥳', '🤠', '👽', '🐱', '🦊', '🐼', '🦁']
+
+export interface PlayerSetupEntry {
+  name: string
+  avatar: string
+}
+
+export function createPlayers(entries: PlayerSetupEntry[]): Player[] {
+  return entries.map((entry, i) => ({
+    id: `p${i}-${entry.name}`,
+    name: entry.name,
+    avatar: entry.avatar,
     color: PLAYER_COLORS[i % PLAYER_COLORS.length],
     position: 0,
     wedges: new Set(),
   }))
 }
 
-export function createInitialState(names: string[]): GameState {
+export function createInitialState(entries: PlayerSetupEntry[]): GameState {
   return {
-    players: createPlayers(names),
+    players: createPlayers(entries),
     currentPlayerIndex: 0,
     phase: 'rolling',
     lastRoll: null,
